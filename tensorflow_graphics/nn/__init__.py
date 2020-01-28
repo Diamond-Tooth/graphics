@@ -17,7 +17,8 @@ from __future__ import division
 from __future__ import print_function
 
 from tensorflow_graphics.nn import layer
+from tensorflow_graphics.nn import losses
 from tensorflow_graphics.util import export_api as _export_api
 
-# API contains submodules of tensorflow_graphics.geometry.
+# API contains submodules of tensorflow_graphics.nn.
 __all__ = _export_api.get_modules()

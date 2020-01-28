@@ -11,16 +11,17 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-# Convolutions and related tools for tf-graphics.
+# Layers tf-graphics.
 
 # google internal package dependency 8)
+# google internal package dependency 5
 
 licenses(["notice"])  # Apache 2.0
 
 package(default_visibility = ["//visibility:public"])
 
 py_library(
-    name = "nn",
+    name = "losses",
     srcs = [
         "__init__.py",
     ],
@@ -28,8 +29,38 @@ py_library(
     # google internal rule 1
     visibility = ["//visibility:public"],
     deps = [
-        "//tensorflow_graphics/nn/layer",
-        "//tensorflow_graphics/nn/losses",
+        ":iou",
         "//tensorflow_graphics/util:export_api",
+    ],
+)
+
+py_library(
+    name = "iou",
+    srcs = ["iou.py"],
+    srcs_version = "PY2AND3",
+    # google internal rule 1
+    deps = [
+        # google internal package dependency 1,
+        "//tensorflow_graphics/util:export_api",
+        "//tensorflow_graphics/util:shape",
+    ],
+)
+
+py_test(
+    name = "iou_test",
+    srcs = ["tests/iou_test.py"],
+    srcs_version = "PY2AND3",
+    # google internal rule 1
+    # google internal rule 2
+    # google internal rule 3
+    # google internal rule 4
+    # google internal rule 5
+    # google internal rule 6
+    deps = [
+        ":iou",
+        # google internal package dependency 2
+        # google internal package dependency 6
+        # google internal package dependency 1,
+        "//tensorflow_graphics/util:test_case",
     ],
 )
